@@ -12,6 +12,12 @@
         <h1>공사중 :(</h1>
       </Page>
     </PageContainer>
+    <div id="notSupport">
+      <div>
+        <h1>죄송합니다 :(</h1>
+        <p>&nbsp;&nbsp;이 사이트는 오직 가로 화면에서만 동작합니다.</p>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -76,5 +82,24 @@ export default {
 
   #page1 > *:nth-child(2).isNotVisible {
     transform: translateX(25px);
+  }
+
+  #notSupport {
+    display: none;
+  }
+
+  @media screen and (orientation: portrait) {
+    #notSupport {
+      position: fixed;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: #fafafa;
+    }
   }
 </style>

@@ -147,11 +147,11 @@ export default {
 }
 
 .category-container > .category > .left {
-    width: 20vmin;
+    width: 30vmin;
 }
 
 .category-container > .category > .left,
-.category-container > .category > .right
+.category-container > .category > .right,
 .material-icons {
     display: inline-block;
     text-align: left;
