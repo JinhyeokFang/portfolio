@@ -2,8 +2,8 @@
   <div id="app">
     <PageContainer :page=0 ref="container">
       <Page id="page1" class="page" backgroundColor="#fafafa">
-        <Profile/>
-        <Introduction/>
+        <Profile :class="{isVisible, isNotVisible}"/>
+        <Introduction :class="{isVisible, isNotVisible}"/>
       </Page>
       <Page class="page" backgroundColor="#fafafa">
         <Project/>
@@ -31,12 +31,22 @@ export default {
     Project,
     Introduction
   },
-  mounted() {
-    alert('주의! 페이지 공사중');
+  computed: {
+    isNotVisible() {
+      return !this.isVisible;
+    }
   },
   methods: {
     changeCurruntPage(number) {
       this.$refs.container.changeCurruntPage(number);
+    }
+  },
+  mounted() {
+    setTimeout(() => this.isVisible = true, 500);
+  },
+  data() {
+    return {
+      isVisible: false
     }
   }
 }
@@ -47,5 +57,24 @@ export default {
     margin: 0;
     overflow: hidden;
     font-family: 'IBM Plex Sans KR', sans-serif;
+  }
+
+  .isVisible {
+    transition: 0.5s all;
+    opacity: 1;
+  }
+
+  .isNotVisible {
+    opacity: 0;
+    transform: translateX(0px);
+    transform: translateY(0px);
+  }
+
+  #page1 > *:nth-child(1).isNotVisible {
+    transform: translateX(-25px);
+  }
+
+  #page1 > *:nth-child(2).isNotVisible {
+    transform: translateX(25px);
   }
 </style>

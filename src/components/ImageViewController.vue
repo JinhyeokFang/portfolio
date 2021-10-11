@@ -2,23 +2,23 @@
   <div id="page-controller">
     <button 
         class="button" 
-        v-for="(_, index) in numberOfPages" 
+        v-for="(_, index) in numberOfImages" 
         :key="index"
         :class="{selected: index == value}"
-        @click="changePage(index)"
+        @click="changeImage(index)"
     />
   </div>
 </template>
 
 <script>
 export default {
-  name: 'PageController',
+  name: 'ImageController',
   props: {
-    numberOfPages: Number,
+    numberOfImages: Number,
     value: Number
   },
   methods: {
-    changePage(number) {
+    changeImage(number) {
       this.$emit('input', number);
     }
   }
@@ -30,18 +30,16 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100vw;
   }
 
-  .button {
-    width: 40px;
-    height: 8px;
+  .button { 
+    width: 25px;
+    height: 10px;
     margin: 5px;
     background-color: white;
     box-shadow: 0px 0px 3px 1px #9f9f9f;
     border: none;
     cursor: pointer;
-    opacity: 0.8;
     transition: 0.5s all;
   }
 
