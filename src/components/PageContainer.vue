@@ -8,7 +8,7 @@
 
       </slot>
     </div>
-    <PageController class="controller" :numberOfPages="numberOfPages" v-model="curruntPage" />
+    <PageController class="controller" :numberOfPages="numberOfPages" v-model="currentPage" />
   </div>
 </template>
 
@@ -26,7 +26,7 @@ export default {
   mounted() {
     this.numberOfPages = this.$children.length - 1;
     if (this.page !== undefined)
-        this.curruntPage = this.page;
+        this.currentPage = this.page;
     
     const DirectionLeft = 'ArrowLeft';
     const DirectionRight = 'ArrowRight';
@@ -35,11 +35,13 @@ export default {
         this.previousPage();
       if (event.key == DirectionRight) 
         this.nextPage();
+      if (!isNaN(parseInt(event.key, 10)))
+        this.numberKeyEvent(parseInt(event.key, 10));
     });
   },
   computed: {
     marginLeftWidth() {
-      return -1 * this.curruntPage * 100 + 'vw';
+      return -1 * this.currentPage * 100 + 'vw';
     },
     pagesWidth() {
       return this.numberOfPages * 100 + 'vw';
@@ -56,21 +58,42 @@ export default {
         this.previousPage();
     },
     nextPage() {
-      if (this.curruntPage < this.numberOfPages - 1)
-        this.curruntPage++;
+      if (this.currentPage < this.numberOfPages - 1) {
+        this.currentPage++;
+      } else {
+        this.currentPage += 0.25;
+        setTimeout(() => this.currentPage = this.numberOfPages - 1, 125);
+      }
     },
     previousPage() {
-      if (this.curruntPage > 0)
-        this.curruntPage--;
+      if (this.currentPage > 0) {
+        this.currentPage--;
+      } else {
+        this.currentPage -= 0.25;
+        setTimeout(() => this.currentPage = 0, 125);
+      }
     },
-    changeCurruntPage(pageNumber) {
-      this.curruntPage = pageNumber;
+    changecurrentPage(pageNumber) {
+      this.currentPage = pageNumber;
+    },
+    numberKeyEvent(number) {
+      if (number > this.numberOfPages) {
+        if (this.currentPage == this.numberOfPages - 1) {
+          this.nextPage();
+          return;
+        }
+        this.currentPage = this.numberOfPages - 1;
+        setTimeout(() => this.currentPage += 0.25, 250);
+        setTimeout(() => this.currentPage -= 0.25, 500);
+      } else if (number != 0) {
+        this.changecurrentPage(number - 1);
+      }
     }
   },
   data() {
     return {
       numberOfPages: 0,
-      curruntPage: 0
+      currentPage: 0
     }
   }
 }

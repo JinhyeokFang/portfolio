@@ -4,7 +4,7 @@
         class="button" 
         v-for="(_, index) in numberOfPages" 
         :key="index"
-        :class="{selected: index == value}"
+        :class="{selected: index == parseInt(value, 10)}"
         @click="changePage(index)"
     />
   </div>

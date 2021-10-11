@@ -1,41 +1,97 @@
 <template>
-  <div id="profile">
+  <div id="profile" :class="{showIntro}">
     <img id="profile-image" draggable="false" src="profile.jpg" alt="프로필 사진">
     <h1 id="title">방진혁</h1>
     <h3 class="text big">"치자피즈 먹고싶다"</h3>
-    <h3 class="text">경기도 수원시</h3>
-    <h3 class="text">경기대학교 컴퓨터공학전공</h3>
-    <h3 class="text">2002.06</h3>
+    <h3 v-if="!showIntro" class="text">경기도 수원시</h3>
+    <h3 v-if="!showIntro" class="text">경기대학교 컴퓨터공학전공</h3>
+    <h3 v-if="!showIntro" class="text">2002.06</h3>
+    <button class="close-button" v-if="showIntro" @click="closeIntro()">
+      <span class="material-icons">
+        navigate_next
+      </span>
+    </button>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Profile'
+  name: 'Profile',
+  methods: {
+    closeIntro() {
+      this.showIntro = false;
+    }
+  },
+  data() {
+    return {
+      showIntro: true
+    }
+  }
 }
 </script>
 
 <style scoped>
-#profile {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+#profile.showIntro {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
 
-    width: 50vmin;
-    height: 65vmin;
-    padding: 7.5vmin 2vmin;
-    margin: 2vmin;
-    box-shadow: 0px 0px 2px 0px #9f9f9f;
-    background-color: white;
+  width: 300vw;
+  height: 100vh;
+  left: -100vw;
+  top: 0;
+  margin: 0;
+  padding: 0;
+  border: none;
+
+  z-index: 1;
+}
+
+.close-button {
+  border: none;
+  padding: 0;
+  margin: 0;
+  margin-top: 1vmin;
+  width: 8vmin;
+  height: 8vmin;
+  border-radius: 10vmin;
+  box-shadow: 0px 0px 2px 0px #9f9f9f;
+  background-color: #fafafa;
+  transition: 0.5s all;
+  cursor: pointer;
+}
+
+.close-button:hover {
+  background-color: #afafaf;
+}
+
+#profile {
+  position: static;
+  cursor: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 50vmin;
+  height: 65vmin;
+  padding: 7.5vmin 2vmin;
+  margin: 2vmin;
+  box-shadow: 0px 0px 2px 0px #9f9f9f;
+  background-color: white;
+
+  z-index: 0;
+  transition: 1s all;
 }
 
 #profile-image {
-    display: block;
-    width: 32.5vmin;
-    height: 32.5vmin;
-    padding: 5px;
-    box-shadow: 0px 0px 2px 0px #9f9f9f;
-    border-radius: 100vw;
+  display: block;
+  width: 32.5vmin;
+  height: 32.5vmin;
+  padding: 5px;
+  box-shadow: 0px 0px 2px 0px #9f9f9f;
+  border-radius: 100vw;
 }
 
 #title {

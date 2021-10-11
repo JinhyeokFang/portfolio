@@ -2,19 +2,13 @@
   <div class="project">
     <div class="project-left">
         <div>
-            <Section title="lsp-server" width="70vmin">
+            <Section :title="title" width="70vmin">
                 <Paragraph>
-                    2012.34.56 ~ 2012.34.56
+                    {{ period }}
                 </Paragraph>
-                <Paragraph>
-                    포스트맨 링크
-                    <span class="material-icons" @click="goto('https://www.postman.com/jinhyeokfang/workspace/my-workspace/collection/4527657-4c019082-f937-411a-b923-f8b7e9b4084b?ctx=documentation')">
-                        link
-                    </span>
-                </Paragraph>
-                <Paragraph>
-                    깃허브 링크 
-                    <span class="material-icons" @click="goto('https://github.com/JinhyeokFang/lsp-server')">
+                <Paragraph v-for="(link, index) in links" :key="index">
+                    {{ link.name }}
+                    <span class="material-icons" @click="goto(link.url)">
                         link
                     </span>
                 </Paragraph>
@@ -25,44 +19,23 @@
     <div class="project-right">
         <Section title="프로젝트 소개" width="70vmin">
             <Paragraph>
-                &nbsp;&nbsp;이 프로젝트는 영국에서 최초로 시작되어 일년에 한 바퀴 돌면서 받는 사람에게 행운을 주었고 지금은 당신에게로 옮겨진 이 프로젝트는 4일 안에 당신 곁을 떠나야 합니다. 이 프로젝트를 포함해서 7통을 행운이 필요한 사람에게 보내 주셔야 합니다...
+                <slot />
             </Paragraph>
         </Section>
         <Section title="사용 기술 및 역할" width="70vmin">
             <Paragraph>
-                역할: 서버 개발 및 배포
+                {{ role }}
             </Paragraph>
             <div class="category-container">
-                <div class="category">
-                    <span class="skill category-title">Backend</span>
-                    <span class="skill">Express</span>
-                    <span class="skill">TypeScript</span>
-                    <span class="skill">MongoDB</span>
-                </div>
-                <div class="category">
-                    <span class="skill category-title"></span>
-                    <span class="skill">Prisma</span>
-                    <span class="skill">Docker API</span>
-                    <span class="skill">Nginx</span>
-                </div>
-                <div class="category">
-                    <span class="skill category-title">Deployment</span>
-                    <span class="skill">Linux</span>
-                    <span class="skill">PM2</span>
-                    <span class="skill">VPS(vultr)</span>
-                    <span class="skill">Docker</span>
-                </div>
-                <div class="category">
-                    <span class="skill category-title">etc</span>
-                    <span class="skill">Git/Github</span>
-                    <span class="skill">Postman</span>
-                    <span class="skill unimportant">...</span>
+                <div class="category" v-for="(category, index) in categorys" :key="index">
+                    <span class="skill category-title">{{ category.title }}</span>
+                    <span class="skill" v-for="(item, index) in category.items" :key="index">{{ item }}</span>
                 </div>
             </div>
         </Section>
         <Section title="기능 설명" width="70vmin">
             <Paragraph>
-                기능1, 기능2, 어어어엄청기이이이능
+                {{ functionManual }}
             </Paragraph>
         </Section>
     </div>
@@ -85,6 +58,15 @@ export default {
     goto(link) {
         location.href = link;
     }
+  },
+  props: {
+    title: String,
+    period: String,
+    description: String,
+    categorys: Array,
+    links: Array,
+    role: String,
+    functionManual: String
   }
 }
 </script>
