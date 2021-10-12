@@ -75,6 +75,9 @@ export default {
     changeCurruntPage(number) {
       this.$refs.container.changeCurruntPage(number);
     }
+  },
+  mounted() {
+    window.scrollTo(0, 1);
   }
 }
 </script>
