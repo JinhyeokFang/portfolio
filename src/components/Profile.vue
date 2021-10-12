@@ -2,7 +2,7 @@
   <div id="profile" :class="{showIntro}">
     <img id="profile-image" draggable="false" src="profile.jpg" alt="프로필 사진">
     <h1 id="title">방진혁</h1>
-    <h3 class="text big">"치자피즈 먹고싶다"</h3>
+    <h3 class="text big">":)"</h3>
     <h3 v-if="!showIntro" class="text">경기도 수원시</h3>
     <h3 v-if="!showIntro" class="text">경기대학교 컴퓨터공학전공</h3>
     <h3 v-if="!showIntro" class="text">2002.06</h3>
@@ -46,7 +46,7 @@ export default {
   padding: 0;
   border: none;
 
-  z-index: 1;
+  z-index: 100000;
 }
 
 .close-button {
