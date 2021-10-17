@@ -37,7 +37,7 @@ export default class PageController extends Vue {
   }
 
   .button {
-    @include shadow();
+    @include shadow;
 
     width: 40px;
     height: 8px;

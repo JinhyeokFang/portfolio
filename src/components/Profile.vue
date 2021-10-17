@@ -68,6 +68,7 @@ export default class Profile extends Vue {
 
 #profile {
   @include flex-column-center;
+  @include shadow;
 
   position: static;
   cursor: auto;
@@ -76,7 +77,6 @@ export default class Profile extends Vue {
   height: 65vmin;
   padding: 7.5vmin 2vmin;
   margin: 2vmin;
-  box-shadow: 0px 0px 2px 0px $card-shadow-color;
   background-color: white;
 
   z-index: 0;

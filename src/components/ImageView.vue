@@ -89,8 +89,6 @@ export default class ImageView extends Vue {
 .fullscrean-image-view .background {
     @include fullscrean;
 
-    bottom: 0;
-    left: 0;
     position: absolute;
     opacity: 0.8;
     background: black;

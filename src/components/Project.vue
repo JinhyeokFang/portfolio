@@ -79,22 +79,19 @@ export default class Project extends Vue {
 
 <style scoped lang="scss">
 .project {
-    display: flex;
-    justify-content: space-around;
+    @include shadow;
+    @include flex-row-around;
 
     width: 148vmin;
     height: 80vmin;
     padding: 0 4vmin;
     margin: 2vmin;
 
-    box-shadow: 0px 0px 2px 0px $card-shadow-color;
     background-color: white;
 }
 
 .project-left {
-    @include flex-column-center;
-
-    justify-content: space-between;
+    @include flex-column-between;
 
     width: 70vmin;
 }
