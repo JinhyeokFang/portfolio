@@ -108,7 +108,8 @@ export default class PageContainer extends Vue {
 
 <style scoped lang="scss">
   #page-container {
-    display: flex;
+    @include flex-row-center;
+
     height: 100vh;
     transition: 0.5s margin-left;
     scroll-behavior: smooth;

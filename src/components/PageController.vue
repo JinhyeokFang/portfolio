@@ -31,18 +31,18 @@ export default class PageController extends Vue {
 
 <style scoped lang="scss">
   #page-controller {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flex-center;
+
     width: 100vw;
   }
 
   .button {
+    @include shadow();
+
     width: 40px;
     height: 8px;
     margin: 5px;
     background-color: white;
-    box-shadow: 0px 0px 3px 1px #9f9f9f;
     border: none;
     cursor: pointer;
     opacity: 0.8;
@@ -50,11 +50,11 @@ export default class PageController extends Vue {
   }
 
   .button:hover {
-    background-color: #9f9f9f;
+    background-color: $card-shadow-color;
   }
 
   .button.selected {
-    background-color: #9f9f9f;
+    background-color: $card-shadow-color;
     box-shadow: none;
   }
 </style>

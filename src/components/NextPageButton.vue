@@ -17,10 +17,12 @@ export default class NextPageButton extends Vue {}
 
 <style scoped lang="scss">
     .next-button {
+        @include shadow;
+
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        filter: drop-shadow(0 0 3px #9f9f9f);
+
         width: 40px;
         height: 40px;
     }

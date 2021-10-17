@@ -87,19 +87,16 @@ export default class Project extends Vue {
     padding: 0 4vmin;
     margin: 2vmin;
 
-    box-shadow: 0px 0px 2px 0px #9f9f9f;
+    box-shadow: 0px 0px 2px 0px $card-shadow-color;
     background-color: white;
 }
 
 .project-left {
-    display: flex;
-    flex-direction: column;
+    @include flex-column-center;
 
     justify-content: space-between;
 
     width: 70vmin;
-    flex-direction: column;
-    align-items: center;
 }
 
 .project-image {
@@ -107,11 +104,9 @@ export default class Project extends Vue {
 }
 
 .project-right {
-    display: flex;
+    @include flex-column-center;
 
     width: 70vmin;
-    flex-direction: column;
-    align-items: center;
 }
 
 .category-container {
@@ -131,8 +126,8 @@ export default class Project extends Vue {
 }
 
 .category {
-    display: flex;
-    align-items: center;
+    @include flex-row-center;
+
     width: 100%;
 }
 

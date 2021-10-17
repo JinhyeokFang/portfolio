@@ -33,11 +33,11 @@ export default class Section extends Vue {
 }
 
 hr {
-    display:block;
+    display: block;
     margin: 1vmin 0;
     width: 100%;
     height: 1px;
     border: none;
-    background-color: #9f9f9f;
+    background-color: $card-shadow-color;
 }
 </style>

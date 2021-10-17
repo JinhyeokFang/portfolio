@@ -59,12 +59,10 @@ export default class ImageView extends Vue {
 }
 
 .image-view {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flex-center;
+    @include shadow;
 
-    box-shadow: 0px 0px 2px 0px #5f5f5f;
+    position: relative;
     padding: 5px;
 }
 
@@ -76,15 +74,12 @@ export default class ImageView extends Vue {
 }
 
 .fullscrean-image-view {
-    position: fixed;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flex-center;
+    @include fullscrean;
 
+    position: fixed;
     bottom: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
     transform: translateY(-100vh);
     transition: 1s all;
     opacity: 0;
@@ -92,11 +87,11 @@ export default class ImageView extends Vue {
 }
 
 .fullscrean-image-view .background {
+    @include fullscrean;
+
     bottom: 0;
     left: 0;
     position: absolute;
-    width: 100vw;
-    height: 100vh;
     opacity: 0.8;
     background: black;
 }

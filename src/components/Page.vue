@@ -1,5 +1,5 @@
 <template>
-  <div class="page" :style="{ backgroundColor }">
+  <div class="page">
     <slot>
       
     </slot>
@@ -8,23 +8,17 @@
 
 <script lang="ts">
 import Vue from "vue"
-import { Component, Prop } from "vue-property-decorator"
+import { Component } from "vue-property-decorator"
 
 @Component({
   name: 'Page'
 })
-export default class Page extends Vue {
-  @Prop(String) readonly backgroundColor!: string;
-}
+export default class Page extends Vue {}
 </script>
 
 <style scoped lang="scss">
   .page {
-    width: 100vw;
-    height: 100vh;
-    
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flex-center;
+    @include fullscrean;
   }
 </style>

@@ -116,15 +116,13 @@ export default class Introduction extends Vue {
 
 <style scoped lang="scss">
 .introduction {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    @include flex-column-center;
+    @include shadow;
 
     width: 90vmin;
     height: 80vmin;
     padding: 0 4vmin;
     margin: 2vmin;
-    box-shadow: 0px 0px 2px 0px #9f9f9f;
     background-color: white;
 }
 
@@ -145,7 +143,7 @@ export default class Introduction extends Vue {
 }
 
 .category {
-    display: flex;
+    @include flex-row-center;
 }
 
 .category-container > .category > .left {

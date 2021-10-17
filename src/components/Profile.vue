@@ -32,10 +32,8 @@ export default class Profile extends Vue {
 
 <style scoped lang="scss">
 #profile.showIntro {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  @include flex-center;
+
   position: fixed;
 
   width: 300vw;
@@ -50,6 +48,8 @@ export default class Profile extends Vue {
 }
 
 .close-button {
+  @include shadow;
+
   border: none;
   padding: 0;
   margin: 0;
@@ -57,28 +57,26 @@ export default class Profile extends Vue {
   width: 8vmin;
   height: 8vmin;
   border-radius: 10vmin;
-  box-shadow: 0px 0px 2px 0px #9f9f9f;
-  background-color: #fafafa;
+  background-color: $app-background-color;
   transition: 0.5s all;
   cursor: pointer;
 }
 
 .close-button:hover {
-  background-color: #afafaf;
+  background-color: $card-shadow-color;
 }
 
 #profile {
+  @include flex-column-center;
+
   position: static;
   cursor: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 
   width: 50vmin;
   height: 65vmin;
   padding: 7.5vmin 2vmin;
   margin: 2vmin;
-  box-shadow: 0px 0px 2px 0px #9f9f9f;
+  box-shadow: 0px 0px 2px 0px $card-shadow-color;
   background-color: white;
 
   z-index: 0;
@@ -90,24 +88,24 @@ export default class Profile extends Vue {
   width: 32.5vmin;
   height: 32.5vmin;
   padding: 5px;
-  box-shadow: 0px 0px 2px 0px #9f9f9f;
+  box-shadow: 0px 0px 2px 0px $card-shadow-color;
   border-radius: 100vw;
 }
 
 #title {
-    margin: 1vmin 0;
-    font-weight: bold;
-    font-size: 4.5vmin;
+  margin: 1vmin 0;
+  font-weight: bold;
+  font-size: 4.5vmin;
 }
 
 .text {
-    margin: 0.5vmin 0;
-    font-weight: lighter;
-    font-size: 2.25vmin;
+  margin: 0.5vmin 0;
+  font-weight: lighter;
+  font-size: 2.25vmin;
 }
 
 .text.big {
-    font-size: 2.75vmin;
-    font-weight: normal;
+  font-size: 2.75vmin;
+  font-weight: normal;
 }
 </style>

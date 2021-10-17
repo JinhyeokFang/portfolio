@@ -1,11 +1,11 @@
 <template>
   <div id="app">
     <PageContainer :page=0 ref="container">
-      <Page class="page" backgroundColor="#fafafa">
+      <Page class="page">
         <Profile/>
         <Introduction/>
       </Page>
-      <Page class="page" backgroundColor="#fafafa">
+      <Page class="page">
         <Project
           title="lsp-server"
           :period="'2012.34.56 ~ 2012.34.56'"
@@ -25,7 +25,7 @@
           &nbsp;&nbsp;이 프로젝트는 영국에서 최초로 시작되어 일년에 한 바퀴 돌면서 받는 사람에게 행운을 주었고 지금은 당신에게로 옮겨진 이 프로젝트는 4일 안에 당신 곁을 떠나야 합니다. 이 프로젝트를 포함해서 7통을 행운이 필요한 사람에게 보내 주셔야 합니다...
         </Project>
       </Page>
-      <Page class="page" backgroundColor="#fafafa">
+      <Page class="page">
         <Project
           :title="'ts-server-v3'"
           :period="'2012.34.56 ~ 2012.34.56'"
@@ -94,7 +94,7 @@ export default class App extends Vue {
     margin: 0;
     overflow: hidden;
     font-family: 'IBM Plex Sans KR', sans-serif;
-    background-color: #fafafa;
+    background-color: $app-background-color;
   }
 
   #notSupport {
@@ -104,16 +104,15 @@ export default class App extends Vue {
 
   @media screen and (orientation: portrait) {
     #notSupport {
+      @include flex-center;
+
       position: fixed;
-      display: flex;
-      justify-content: center;
-      align-items: center;
       text-align: center;
       top: 0;
       left: 0;
       width: 100vw;
       height: 100vh;
-      background: #fafafa;
+      background: $app-background-color;
     }
   }
 </style>
