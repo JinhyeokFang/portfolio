@@ -6,16 +6,19 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'HelloWorld',
-  props: {
-    backgroundColor: String
-  }
+<script lang="ts">
+import Vue from "vue"
+import { Component, Prop } from "vue-property-decorator"
+
+@Component({
+  name: 'Page'
+})
+export default class Page extends Vue {
+  @Prop(String) readonly backgroundColor!: string;
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
   .page {
     width: 100vw;
     height: 100vh;

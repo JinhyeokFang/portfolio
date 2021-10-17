@@ -93,26 +93,28 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue';
+import Component from 'vue-class-component';
 import Section from './Section.vue'
 
-export default {
-  name: 'Introduction',
-  components: {
-    Section
-  },
-  methods: {
-    goto(link) {
+@Component({
+    name: 'Introduction',
+    components: {
+        Section
+    }
+})
+export default class Introduction extends Vue {
+    goto(link: string): void {
         location.href = link;
-    },
-    copy(value) {
+    }
+    copy(value: string): void {
         navigator.clipboard.writeText(value);
     }
-  }
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .introduction {
     display: flex;
     flex-direction: column;

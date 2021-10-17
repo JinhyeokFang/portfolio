@@ -5,27 +5,31 @@
         v-for="(_, index) in numberOfImages" 
         :key="index"
         :class="{selected: index == value}"
-        @click="changeImage(index)"
+        @click="input(index)"
     />
   </div>
 </template>
 
-<script>
-export default {
-  name: 'ImageController',
-  props: {
-    numberOfImages: Number,
-    value: Number
-  },
-  methods: {
-    changeImage(number) {
-      this.$emit('input', number);
-    }
+<script lang="ts">
+import Vue from "vue";
+import Component from "vue-class-component";
+import { Emit, Prop } from "vue-property-decorator";
+
+@Component({
+  name: 'ImageController'
+})
+export default class ImageController extends Vue {
+  @Prop(Number) readonly numberOfImages!: number;
+  @Prop(Number) readonly value!: number;
+
+  @Emit()
+  input(number: number): number {
+    return number;
   }
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
   #page-controller {
     display: flex;
     justify-content: center;

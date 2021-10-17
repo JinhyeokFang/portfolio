@@ -7,7 +7,7 @@
       </Page>
       <Page class="page" backgroundColor="#fafafa">
         <Project
-          :title="'lsp-server'"
+          title="lsp-server"
           :period="'2012.34.56 ~ 2012.34.56'"
           :links="[
             { name: '포스트맨 링크', url: 'https://www.postman.com/jinhyeokfang/workspace/my-workspace/collection/4527657-4c019082-f937-411a-b923-f8b7e9b4084b?ctx=documentation'},
@@ -55,14 +55,18 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue'
+import Component from 'vue-class-component'
+import { Ref } from 'vue-property-decorator/lib'
+
 import Introduction from './components/Introduction.vue'
 import Page from './components/Page.vue'
 import PageContainer from './components/PageContainer.vue'
 import Profile from './components/Profile.vue'
 import Project from './components/Project.vue'
 
-export default {
+@Component({
   name: 'App',
   components: {
     Page,
@@ -70,19 +74,22 @@ export default {
     Profile,
     Project,
     Introduction
-  },
-  methods: {
-    changeCurruntPage(number) {
-      this.$refs.container.changeCurruntPage(number);
-    }
-  },
-  mounted() {
+  }
+})
+export default class App extends Vue {
+  @Ref() readonly container!: PageContainer;
+
+  changeCurruntPage(number: number): void {
+    this.container.changecurrentPage(number);
+  }
+
+  mounted(): void {
     window.scrollTo(0, 1);
   }
 }
 </script>
 
-<style>
+<style lang="scss">
   body {
     margin: 0;
     overflow: hidden;

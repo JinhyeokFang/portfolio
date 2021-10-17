@@ -1,6 +1,6 @@
 <template>
   <div :style="{ width }">
-    <h1 class="title">{{title}}</h1>
+    <h1 class="title">{{ title }}</h1>
     <hr>
     <slot>
 
@@ -8,17 +8,21 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'Section',
-  props: {
-    title: String,
-    width: String
-  }
+<script lang="ts">
+import Vue from 'vue'
+import Component from 'vue-class-component'
+import { Prop } from 'vue-property-decorator'
+
+@Component({
+  name: 'Section'
+})
+export default class Section extends Vue {
+  @Prop(String) readonly title!: string;
+  @Prop(String) readonly width!: string;
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .title {
     margin: 0;
     margin-top: 5vmin;
@@ -36,6 +40,4 @@ hr {
     border: none;
     background-color: #9f9f9f;
 }
-
-
 </style>

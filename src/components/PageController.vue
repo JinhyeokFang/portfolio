@@ -5,27 +5,31 @@
         v-for="(_, index) in numberOfPages" 
         :key="index"
         :class="{selected: index == parseInt(value, 10)}"
-        @click="changePage(index)"
+        @click="input(index)"
     />
   </div>
 </template>
 
-<script>
-export default {
-  name: 'PageController',
-  props: {
-    numberOfPages: Number,
-    value: Number
-  },
-  methods: {
-    changePage(number) {
-      this.$emit('input', number);
-    }
+<script lang="ts">
+import Vue from "vue";
+import Component from "vue-class-component";
+import { Emit, Prop } from "vue-property-decorator";
+
+@Component({
+  name: 'PageController'
+})
+export default class PageController extends Vue {
+  @Prop(Number) readonly numberOfPages!: number;
+  @Prop(Number) readonly value!: number;
+
+  @Emit()
+  input(number: number): number {
+    return number;
   }
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
   #page-controller {
     display: flex;
     justify-content: center;

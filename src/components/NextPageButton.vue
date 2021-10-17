@@ -5,13 +5,17 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'NextPageButton'
-}
+<script lang="ts">
+import Vue from "vue";
+import Component from "vue-class-component";
+
+@Component({
+    name: 'NextPageButton'
+})
+export default class NextPageButton extends Vue {}
 </script>
 
-<style scoped>
+<style scoped lang="scss">
     .next-button {
         display: flex;
         flex-direction: column;

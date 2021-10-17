@@ -14,23 +14,23 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'Profile',
-  methods: {
-    closeIntro() {
-      this.showIntro = false;
-    }
-  },
-  data() {
-    return {
-      showIntro: true
-    }
+<script lang="ts">
+import Vue from 'vue';
+import Component from 'vue-class-component';
+
+@Component({
+  name: 'Profile'
+})
+export default class Profile extends Vue {
+  public showIntro = true;
+
+  closeIntro(): void {
+    this.showIntro = false;
   }
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 #profile.showIntro {
   display: flex;
   flex-direction: column;

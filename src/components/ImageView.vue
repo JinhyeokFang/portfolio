@@ -18,35 +18,34 @@
     </div>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue';
+import Component from 'vue-class-component';
+import { Prop } from "vue-property-decorator";
 import ImageViewController from './ImageViewController.vue';
 
-export default {
+@Component({
   name: 'ImageView',
-  props: {
-    src: Array,
-    width: String,
-    height: String,
-    alt: String
-  },
   components: {
     ImageViewController
-  },
-  methods: {
-    imageClickEvent() {
+  }
+})
+export default class ImageView extends Vue {
+    public fullscrean = false;
+    public curruntImage = 0;
+
+    @Prop(Array) readonly src!: Array<string>;
+    @Prop(String) readonly width!: string;
+    @Prop(String) readonly height!: string;
+    @Prop(String) readonly alt!: string;
+
+    imageClickEvent(): void {
         this.fullscrean = !this.fullscrean;
     }
-  },
-  data() {
-    return {
-        fullscrean: false,
-        curruntImage: 0
-    }
-  }
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 #controller {
     position: absolute;
     bottom: 0;
