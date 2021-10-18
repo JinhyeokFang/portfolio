@@ -1,0 +1,9 @@
+<div id="page-controller">
+    <button 
+        class="button" 
+        v-for="(_, index) in numberOfPages" 
+        :key="index"
+        :class="{selected: index == parseInt(value, 10)}"
+        @click="input(index)"
+    />
+</div>

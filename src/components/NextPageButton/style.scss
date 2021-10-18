@@ -1,0 +1,29 @@
+.next-button {
+    @include shadow;
+    @include flex-column-between;
+
+    width: 40px;
+    height: 40px;
+}
+
+.button { 
+    width: 40px;
+    height: 8px;
+    margin: 5px;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    transition: 0.5s all;
+}
+
+#one {
+    transform: rotate(45deg);
+}
+
+#two {
+    transform: rotate(-45deg);
+}
+
+.next-button:hover .button {
+    background-color: #9f9f9f;
+}

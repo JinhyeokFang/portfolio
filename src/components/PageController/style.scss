@@ -1,0 +1,27 @@
+#page-controller {
+    @include flex-center;
+
+    width: 100vw;
+}
+
+.button {
+    @include shadow;
+
+    width: 40px;
+    height: 8px;
+    margin: 5px;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: 0.5s all;
+}
+
+.button:hover {
+    background-color: $card-shadow-color;
+}
+
+.button.selected {
+    background-color: $card-shadow-color;
+    box-shadow: none;
+}

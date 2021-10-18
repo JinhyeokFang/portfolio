@@ -1,0 +1,61 @@
+
+#controller {
+    position: absolute;
+    bottom: 0;
+    margin: auto;
+}
+
+.fullscrean-image-view,
+.image-view img {
+    display: block;
+    cursor: pointer;
+}
+
+.image-view {
+    @include flex-center;
+    @include shadow;
+
+    position: relative;
+    padding: 5px;
+}
+
+.image-view img {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    object-fit: cover;
+}
+
+.fullscrean-image-view {
+    @include flex-center;
+    @include fullscrean;
+
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    transform: translateY(-100vh);
+    transition: 1s all;
+    opacity: 0;
+    z-index: 1;
+}
+
+.fullscrean-image-view .background {
+    @include fullscrean;
+
+    position: absolute;
+    opacity: 0.8;
+    background: black;
+}
+
+.fullscrean-image-view img {
+    max-width: 100vw;
+    max-height: 100vh;
+    object-fit: contain;
+    /* cursor:initial; */
+    z-index: 2;
+}
+
+.fullscrean-image-view.fullscrean {
+    transform: translateY(0);
+    opacity: 1;
+}

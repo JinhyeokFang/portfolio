@@ -1,0 +1,9 @@
+<div id="page-controller">
+    <button 
+        class="button" 
+        v-for="(_, index) in numberOfImages" 
+        :key="index"
+        :class="{selected: index == value}"
+        @click="input(index)"
+    />
+</div>

@@ -1,5 +1,4 @@
-<template>
-  <div class="introduction">
+<div class="introduction">
     <Section title="Skills" width="90vmin">
         <div class="category-container">
             <div class="category">
@@ -90,77 +89,4 @@
             </div>
         </div>
     </Section>
-  </div>
-</template>
-
-<script lang="ts">
-import Vue from 'vue';
-import Component from 'vue-class-component';
-import Section from './Section.vue'
-
-@Component({
-    name: 'Introduction',
-    components: {
-        Section
-    }
-})
-export default class Introduction extends Vue {
-    goto(link: string): void {
-        location.href = link;
-    }
-    copy(value: string): void {
-        navigator.clipboard.writeText(value);
-    }
-}
-</script>
-
-<style scoped lang="scss">
-.introduction {
-    @include flex-column-center;
-    @include shadow;
-
-    width: 90vmin;
-    height: 80vmin;
-    padding: 0 4vmin;
-    margin: 2vmin;
-    background-color: white;
-}
-
-.item {
-    display: block;
-    text-align: left;
-    font-size: 2.5vmin;
-    margin-right: 5vmin;
-}
-
-.item.category-title {
-    width: 20vmin;
-    font-size: 2.5vmin;
-}
-
-.item.unimportant {
-    font-weight: lighter;
-}
-
-.category {
-    @include flex-row-center;
-}
-
-.category-container > .category > .left {
-    width: 30vmin;
-}
-
-.category-container > .category > .left,
-.category-container > .category > .right,
-.material-icons {
-    display: inline-block;
-    text-align: left;
-    font-size: 2.25vmin;
-    margin-right: 5vmin;
-}
-
-.material-icons {
-    cursor: pointer;
-}
-
-</style>
+</div>
