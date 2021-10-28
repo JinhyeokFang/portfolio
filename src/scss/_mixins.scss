@@ -1,7 +1,45 @@
-@mixin shadow() {
-    filter: drop-shadow(0 0 2px $card-shadow-color);
+// color
+@mixin app-color() {
+    background-color: $app-background-color;
+    color: $app-color;
+    @media (prefers-color-scheme: dark) {
+        background-color: $dark-app-background-color;
+        color: $dark-app-color;
+    }
 }
 
+@mixin content-color() {
+    background-color: $content-background-color;
+    color: $content-color;
+    @media (prefers-color-scheme: dark) {
+        background-color: $dark-content-background-color;
+        color: $dark-content-color;
+    }
+}
+
+@mixin button-color() {
+    background-color: $button-color;
+    @media (prefers-color-scheme: dark) {
+        background-color: $dark-button-color;
+    }
+}
+
+@mixin button-highlight-color() {
+    background-color: $button-highlight-color;
+    @media (prefers-color-scheme: dark) {
+        background-color: $dark-button-highlight-color;
+    }
+}
+
+// shadow
+@mixin shadow() {
+    filter: drop-shadow(0 0 2px $card-shadow-color);
+    @media (prefers-color-scheme: dark) {
+        filter: drop-shadow(0 0 2px $dark-card-shadow-color);
+    }
+}
+
+// flexbox
 @mixin flex-row-center() {
     display: flex;
     align-items: center;

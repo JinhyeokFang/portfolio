@@ -15,6 +15,7 @@
 }
   
 .close-button {
+    @include button-color;
     @include shadow;
   
     border: none;
@@ -24,16 +25,16 @@
     width: 8vmin;
     height: 8vmin;
     border-radius: 10vmin;
-    background-color: $app-background-color;
     transition: 0.5s all;
     cursor: pointer;
 }
   
 .close-button:hover {
-    background-color: $card-shadow-color;
+    @include button-highlight-color;
 }
   
 #profile {
+    @include content-color;
     @include flex-column-center;
     @include shadow;
   
@@ -44,18 +45,18 @@
     height: 65vmin;
     padding: 7.5vmin 2vmin;
     margin: 2vmin;
-    background-color: white;
   
     z-index: 0;
     transition: 1s all;
 }
   
 #profile-image {
+    @include shadow;
+
     display: block;
     width: 32.5vmin;
     height: 32.5vmin;
     padding: 5px;
-    box-shadow: 0px 0px 2px 0px $card-shadow-color;
     border-radius: 100vw;
 }
   

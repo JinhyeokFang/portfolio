@@ -6,11 +6,12 @@
     height: 40px;
 }
 
-.button { 
+.button {
+    @include button-color;
+
     width: 40px;
     height: 8px;
     margin: 5px;
-    background-color: white;
     border: none;
     cursor: pointer;
     transition: 0.5s all;
@@ -25,5 +26,5 @@
 }
 
 .next-button:hover .button {
-    background-color: #9f9f9f;
+    @include button-highlight-color;
 }

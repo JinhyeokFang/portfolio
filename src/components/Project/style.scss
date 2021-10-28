@@ -1,4 +1,5 @@
 .project {
+    @include content-color;
     @include shadow;
     @include flex-row-around;
 
@@ -6,8 +7,6 @@
     height: 80vmin;
     padding: 0 4vmin;
     margin: 2vmin;
-
-    background-color: white;
 }
 
 .project-left {

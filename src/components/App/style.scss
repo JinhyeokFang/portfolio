@@ -1,8 +1,9 @@
 body {
+    @include app-color;
+    
     margin: 0;
     overflow: hidden;
     font-family: 'IBM Plex Sans KR', sans-serif;
-    background-color: $app-background-color;
 }
 
 #notSupport {

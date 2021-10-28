@@ -5,12 +5,12 @@
 }
 
 .button {
+    @include button-color;
     @include shadow;
 
     width: 40px;
     height: 8px;
     margin: 5px;
-    background-color: white;
     border: none;
     cursor: pointer;
     opacity: 0.8;
@@ -18,10 +18,10 @@
 }
 
 .button:hover {
-    background-color: $card-shadow-color;
+    @include button-highlight-color;
 }
 
 .button.selected {
-    background-color: $card-shadow-color;
+    @include button-highlight-color;
     box-shadow: none;
 }
