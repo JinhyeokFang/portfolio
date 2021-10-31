@@ -1,53 +1,57 @@
-#profile.showIntro {
-    @include flex-center;
-  
-    position: fixed;
-  
-    width: 300vw;
-    height: 100vh;
-    left: -100vw;
-    top: 0;
-    margin: 0;
-    padding: 0;
-    border: none;
-  
-    z-index: 100000;
-}
-  
 .close-button {
-    @include button-color;
-    @include shadow;
-  
-    border: none;
-    padding: 0;
-    margin: 0;
-    margin-top: 1vmin;
-    width: 8vmin;
-    height: 8vmin;
-    border-radius: 10vmin;
-    transition: 0.5s all;
-    cursor: pointer;
-}
-  
-.close-button:hover {
-    @include button-highlight-color;
+    & {
+        @include button-color;
+        @include shadow;
+      
+        border: none;
+        padding: 0;
+        margin: 0;
+        margin-top: 1vmin;
+        width: 8vmin;
+        height: 8vmin;
+        border-radius: 10vmin;
+        transition: 0.5s all;
+        cursor: pointer;
+    }
+
+    &:hover {
+        @include button-highlight-color;
+    }
 }
   
 #profile {
-    @include content-color;
-    @include flex-column-center;
-    @include shadow;
+    & {
+        @include content-color;
+        @include flex-column-center;
+        @include shadow;
+      
+        position: static;
+        cursor: auto;
+      
+        width: 50vmin;
+        height: 65vmin;
+        padding: 7.5vmin 2vmin;
+        margin: 2vmin;
+      
+        z-index: 0;
+        transition: 1s all;
+    }
+
+    &.showIntro {
+        @include flex-center;
   
-    position: static;
-    cursor: auto;
-  
-    width: 50vmin;
-    height: 65vmin;
-    padding: 7.5vmin 2vmin;
-    margin: 2vmin;
-  
-    z-index: 0;
-    transition: 1s all;
+        position: fixed;
+      
+        width: 300vw;
+        height: 100vh;
+        left: -100vw;
+        top: 0;
+        margin: 0;
+        padding: 0;
+        border: none;
+      
+        z-index: 100000;
+    }
 }
   
 #profile-image {
@@ -67,12 +71,14 @@
 }
   
 .text {
-    margin: 0.5vmin 0;
-    font-weight: lighter;
-    font-size: 2.25vmin;
-}
-  
-.text.big {
-    font-size: 2.75vmin;
-    font-weight: normal;
+    & {
+        margin: 0.5vmin 0;
+        font-weight: lighter;
+        font-size: 2.25vmin;
+    }
+
+    &.big {
+        font-size: 2.75vmin;
+        font-weight: normal;
+    }
 }

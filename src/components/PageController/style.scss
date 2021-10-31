@@ -5,23 +5,25 @@
 }
 
 .button {
-    @include button-color;
-    @include shadow;
+    & {
+        @include button-color;
+        @include shadow;
+    
+        width: 40px;
+        height: 8px;
+        margin: 5px;
+        border: none;
+        cursor: pointer;
+        opacity: 0.8;
+        transition: 0.5s all;
+    }
 
-    width: 40px;
-    height: 8px;
-    margin: 5px;
-    border: none;
-    cursor: pointer;
-    opacity: 0.8;
-    transition: 0.5s all;
-}
+    &:hover {
+        @include button-highlight-color;
+    }
 
-.button:hover {
-    @include button-highlight-color;
-}
-
-.button.selected {
-    @include button-highlight-color;
-    box-shadow: none;
+    &.selected {
+        @include button-highlight-color;
+        box-shadow: none;
+    }
 }

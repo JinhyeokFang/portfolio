@@ -10,27 +10,33 @@
 }
 
 .item {
-    display: block;
-    text-align: left;
-    font-size: 2.5vmin;
-    margin-right: 5vmin;
+    & {
+        display: block;
+        text-align: left;
+        font-size: 2.5vmin;
+        margin-right: 5vmin;
+    }
+
+    &.category-title {
+        width: 20vmin;
+        font-size: 2.5vmin;
+    }
+
+    &.unimportant {
+        font-weight: lighter;
+    }
 }
 
-.item.category-title {
-    width: 20vmin;
-    font-size: 2.5vmin;
-}
+.category-container {
+    .category {
+        & {
+            @include flex-row-center;
+        }
 
-.item.unimportant {
-    font-weight: lighter;
-}
-
-.category {
-    @include flex-row-center;
-}
-
-.category-container > .category > .left {
-    width: 30vmin;
+        .left {
+            width: 30vmin;
+        }
+    }
 }
 
 .category-container > .category > .left,

@@ -3,22 +3,24 @@
 }
 
 .button {
-    @include shadow;
+    & {
+        @include shadow;
+        @include button-color;
+    
+        width: 25px;
+        height: 10px;
+        margin: 5px;
+        border: none;
+        cursor: pointer;
+        transition: 0.5s all;
+    }
 
-    width: 25px;
-    height: 10px;
-    margin: 5px;
-    background-color: white;
-    border: none;
-    cursor: pointer;
-    transition: 0.5s all;
-}
+    &:hover {
+        @include button-highlight-color;
+    }
 
-.button:hover {
-    background-color: $card-shadow-color;
-}
-
-.button.selected {
-    background-color: $card-shadow-color;
-    box-shadow: none;
+    &.selected {
+        @include button-highlight-color;
+        box-shadow: none;
+    }
 }

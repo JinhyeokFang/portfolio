@@ -10,15 +10,10 @@ import ImageViewController from '../ImageViewController/ImageViewController.vue'
   }
 })
 export default class ImageView extends Vue {
-    public fullscrean = false;
     public curruntImage = 0;
 
     @Prop(Array) readonly src!: Array<string>;
     @Prop(String) readonly width!: string;
     @Prop(String) readonly height!: string;
     @Prop(String) readonly alt!: string;
-
-    imageClickEvent(): void {
-        this.fullscrean = !this.fullscrean;
-    }
 }
