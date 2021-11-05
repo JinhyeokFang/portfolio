@@ -27,5 +27,6 @@ export default class App extends Vue {
 
   mounted(): void {
     window.scrollTo(0, 1);
+    this.$gtag.event('wow', { message: 'WOW' });
   }
 }
