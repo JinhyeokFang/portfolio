@@ -6,21 +6,18 @@ body {
     font-family: 'IBM Plex Sans KR', sans-serif;
 }
 
-#notSupport {
+#portrait, #landscape {
     display: none;
-    z-index: 10000;
 }
 
-@media screen and (orientation: portrait) {
-    #notSupport {
-      @include flex-center;
+@media (orientation: portrait) {
+    #portrait {
+        display: block;
+    }
+}
 
-      position: fixed;
-      text-align: center;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: $app-background-color;
+@media (orientation: landscape) {
+    #landscape {
+        display: block;
     }
 }

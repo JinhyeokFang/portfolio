@@ -2,8 +2,14 @@
     @include flex-row-center;
 
     height: 100vh;
-    transition: 0.5s margin-left;
+    transition: 0.5s margin;
     scroll-behavior: smooth;
+}
+
+@media (orientation: portrait) {
+    #page-container {
+        @include flex-column-center;
+    }
 }
 
 .page-button {

@@ -1,11 +1,12 @@
 <div>
-    <div
-    id="page-container"
-    v-hammer:swipe.horizontal="onSwipe"
-    :style="{ width: pagesWidth, marginLeft: marginLeftWidth }">
-        <slot/>
-    </div>
-  <NextPageButton class="page-button" :class="{showPreviousButton}" id="previous-page-button" @click.native="previousPage()"/>
-  <NextPageButton class="page-button" :class="{showNextButton}" id="next-page-button" @click.native="nextPage()"/>
+  <div
+  id="page-container"
+  v-hammer:swipe.all="onSwipe"
+  :style="{ width: pagesWidth, marginLeft: marginLeftWidth,
+            height: pagesHeight, marginTop: marginTopHeight }">
+      <slot/>
+  </div>
+  <NextPageButton v-if="!portrait" class="page-button" :class="{showPreviousButton}" id="previous-page-button" @click.native="previousPage()"/>
+  <NextPageButton v-if="!portrait" class="page-button" :class="{showNextButton}" id="next-page-button" @click.native="nextPage()"/>
   <PageController class="controller" :numberOfPages="numberOfPages" v-model="currentPage" />
 </div>
