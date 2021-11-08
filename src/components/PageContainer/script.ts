@@ -17,11 +17,14 @@ export default class PageContainer extends Vue {
   public currentPage = 0;
 
   @Prop(Number) readonly page!: number;
+  @Prop(Boolean) readonly portrait!: boolean;
 
   mounted(): void {
-    this.numberOfPages = this.$children.length - 3;
+    this.numberOfPages = this.$children.length - (this.portrait ? 1 : 3);
     if (this.page !== undefined)
-        this.currentPage = this.page;
+      this.currentPage = this.page;
+    if (this.portrait)
+      return;
     
     const DirectionLeft = 'ArrowLeft';
     const DirectionRight = 'ArrowRight';
@@ -36,10 +39,16 @@ export default class PageContainer extends Vue {
   }
 
   get marginLeftWidth(): string {
-    return -1 * this.currentPage * 100 + 'vw';
+    return this.portrait ? '0' : -1 * this.currentPage * 100 + 'vw';
   }
   get pagesWidth(): string {
-    return this.numberOfPages * 100 + 'vw';
+    return this.portrait ? '100vw' : this.numberOfPages * 100 + 'vw';
+  }
+  get marginTopHeight(): string {
+    return !this.portrait ? '0' : -1 * this.currentPage * 100 + 'vh';
+  }
+  get pagesHeight(): string {
+    return !this.portrait ? '100vh' : this.numberOfPages * 100 + 'vh';
   }
   get showPreviousButton(): boolean {
     return this.currentPage != 0;
@@ -49,10 +58,17 @@ export default class PageContainer extends Vue {
   }
 
   onSwipe(event: ISwipeEvent): void {
-    if (event.direction == Direction.Left)
-      this.nextPage();
-    if (event.direction == Direction.Right)
-      this.previousPage();
+    if (this.portrait) {
+      if (event.direction == Direction.Bottom)
+        this.nextPage();
+      if (event.direction == Direction.Top)
+        this.previousPage();
+    } else {
+      if (event.direction == Direction.Left)
+        this.nextPage();
+      if (event.direction == Direction.Right)
+        this.previousPage();
+    }
   }
   nextPage(): void {
     if (this.currentPage < this.numberOfPages - 1) {
