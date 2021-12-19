@@ -1,8 +1,13 @@
 import Vue from 'vue'
 import App from './App.vue'
 import { VueHammer } from 'vue2-hammer'
-import analytics from './analytics'
+import VueGtag from 'vue-gtag'
 
+Vue.use(VueGtag, {
+    config: {
+        id: 'G-MLY8K6YLN0'
+    }
+});
 Vue.use(VueHammer);
 Vue.config.productionTip = false;
 
