@@ -5,7 +5,10 @@ import VueGtag from 'vue-gtag'
 
 Vue.use(VueGtag, {
     config: {
-        id: 'G-MLY8K6YLN0'
+      id: 'G-MLY8K6YLN0'
+    },
+    params: {
+      send_page_view: false
     }
 });
 Vue.use(VueHammer);
