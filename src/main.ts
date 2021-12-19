@@ -8,7 +8,7 @@ Vue.use(VueGtag, {
       id: 'G-MLY8K6YLN0'
     },
     params: {
-      send_page_view: false
+      send_page_view: true
     }
 });
 Vue.use(VueHammer);
